@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NIRNAY LABS</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#FAF7F0;--fg:#0B1F3A;--card:#fff;--bd:#d9d4c7;--nav:#0B1F3A;--navfg:#fff;--teal:#2F7F86;--saf:#E08A2E;--ok:#2E8B57;--warn:#D99A1E;--bad:#C0392B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1424;--fg:#f2efe8;--card:#13294B;--bd:#2c4468;--nav:#050c18}}
+:root[data-theme="dark"]{--bg:#0a1424;--fg:#f2efe8;--card:#13294B;--bd:#2c4468;--nav:#050c18}
+html{scroll-padding-top:env(safe-area-inset-top,0px);font-size:16px}html.large{font-size:19px}
+html.hc{--bg:#000;--fg:#fff;--card:#000;--bd:#fff;--nav:#000}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.5;padding-bottom:70px}
+header{background:var(--nav);color:var(--navfg);padding:12px 16px}
+.wrap{max-width:960px;margin:0 auto}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.sp{justify-content:space-between}
+.logo{font-weight:800;letter-spacing:.15em;font-size:1.3rem;color:#fff;text-decoration:none}.logo b{color:var(--saf)}
+.tag{font-size:.75rem;opacity:.8;max-width:430px}
+button,.btn{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg);padding:8px 14px;text-decoration:none;display:inline-block}
+.pri{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}.saf{background:var(--saf);color:#fff;border-color:var(--saf);font-weight:600}
+.hb{background:#13294B;color:#fff;border-color:#2c4468;padding:6px 10px}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+button[aria-pressed=true].g{background:var(--ok);color:#fff}button[aria-pressed=true].a{background:var(--warn);color:#fff}button[aria-pressed=true].s{background:var(--saf);color:#fff}button[aria-pressed=true].n{background:var(--fg);color:var(--bg)}
+.mech{margin-top:8px;font-size:.72rem;font-weight:700}.mech span{background:var(--teal);color:#fff;padding:3px 8px;border-radius:4px}.mech i{font-style:normal;margin:0 6px}
+main{max-width:960px;margin:0 auto;padding:16px}h1{margin:.2em 0 .5em}h2,h3{margin:.2em 0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:16px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.banner{border-left:5px solid var(--saf);background:var(--card);padding:10px 14px;font-weight:600;border-radius:6px;margin:12px 0}
+.hero{font-size:clamp(1.7rem,5vw,3rem);font-weight:800}
+.bar{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:.9rem}.bar span:first-child{width:110px}.bar div{flex:1;background:var(--bd);border-radius:4px;height:16px}.bar em{display:block;height:100%;border-radius:4px}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.big{font-size:3rem;font-weight:800}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(340px,92vw);background:var(--card);color:var(--fg);border-left:1px solid var(--bd);padding:calc(16px + env(safe-area-inset-top,0px)) 16px 16px;overflow:auto;z-index:50;box-shadow:-4px 0 20px #0005}
+nav.demo{position:fixed;left:0;right:0;bottom:0;background:var(--nav);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));overflow-x:auto;white-space:nowrap}
+nav.demo a{background:#13294B;color:#fff;padding:5px 12px;border-radius:6px;margin-right:6px;text-decoration:none;font-size:.85rem;display:inline-block}nav.demo a.on{background:var(--saf)}
+nav.demo b{color:var(--saf);font-size:.75rem;margin-right:8px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{text-align:left;padding:6px;border-top:1px solid var(--bd)}
+input,textarea,select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--bd);background:#fff;color:#000;max-width:100%}
+.small{font-size:.8rem;opacity:.85}
+@media print{header,nav.demo,.noprint{display:none!important}body{background:#fff;color:#000}.card{border-color:#999;background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const TX={
+tag:["A family decision system for choosing a skill pathway with evidence, not assumptions.","ಊಹೆಗಳಲ್ಲ, ಸಾಕ್ಷ್ಯದೊಂದಿಗೆ ಕೌಶಲ್ಯ ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆ ಮಾಡುವ ಕುಟುಂಬ ನಿರ್ಧಾರ ವ್ಯವಸ್ಥೆ."],
+start:["Start a family decision","ಕುಟುಂಬ ನಿರ್ಧಾರ ಪ್ರಾರಂಭಿಸಿ"],
+ai:["AI explains the evidence. AI does not invent the evidence.","AI ಸಾಕ್ಷ್ಯವನ್ನು ವಿವರಿಸುತ್ತದೆ. AI ಸಾಕ್ಷ್ಯವನ್ನು ಸೃಷ್ಟಿಸುವುದಿಲ್ಲ."],
+who:["Who is using NIRNAY LABS?","NIRNAY LABS ಅನ್ನು ಯಾರು ಬಳಸುತ್ತಿದ್ದಾರೆ?"],
+learner:["Learner","ವಿದ್ಯಾರ್ಥಿ"],parent:["Parent / Family","ಪೋಷಕರು / ಕುಟುಂಬ"],counsellor:["Counsellor","ಸಲಹೆಗಾರ"],
+agreed:["Agreed","ಒಪ್ಪಿಗೆ"],unres:["Unresolved","ಬಗೆಹರಿಯದ"],yes:["This answers my concern","ಇದು ನನ್ನ ಚಿಂತೆಗೆ ಉತ್ತರ"],no:["I'm still worried","ನನಗೆ ಇನ್ನೂ ಚಿಂತೆ ಇದೆ"],
+print:["Print receipt","ರಸೀದಿ ಮುದ್ರಿಸಿ"],receipt:["Decision Receipt","ನಿರ್ಧಾರ ರಸೀದಿ"],room:["Family Decision Room","ಕುಟುಂಬ ನಿರ್ಧಾರ ಕೊಠಡಿ"],
+worry:["What worries you most?","ನಿಮಗೆ ಹೆಚ್ಚು ಚಿಂತೆ ಏನು?"],map:["Family Concern Map","ಕುಟುಂಬ ಚಿಂತೆ ನಕ್ಷೆ"]};
+const CONC=[["INCOME","Income","ಆದಾಯ"],["SAFETY","Safety","ಸುರಕ್ಷತೆ"],["JOB_SECURITY","Job security","ಉದ್ಯೋಗ ಭದ್ರತೆ"],["RECOGNITION","Social recognition","ಸಾಮಾಜಿಕ ಮನ್ನಣೆ"],["AFFORD","Affordability","ಕೈಗೆಟುಕುವಿಕೆ"]];
+const EV=[
+{id:"jobs",q:"Will my child actually get a job after this?",t:"Local opportunities",b:"12 Electrical Technician openings found in Bengaluru Urban.",p:["District employment exchange listings","State Skill Development Dept.","High","Verified","12 days ago"]},
+{id:"qual",q:"Is this qualification recognised?",t:"NSQF Level 4 qualification",b:"ITI Electrician maps to NSQF Level 4, recognised for diploma lateral entry.",p:["NSQF qualification register","National vocational education council","High","Verified","30 days ago"]},
+{id:"path",q:"Where can this lead in 5 years?",t:"Career progression",b:"Technician → Senior Technician → Supervisor → Diploma (lateral entry).",p:["Sector skill council role map","Power Sector Skill Council","Medium","Verified","60 days ago"]},
+{id:"earn",q:"How much will they earn?",t:"Earning context",b:"₹18,000–₹32,000 per month, an indicative range for entry to 3 years.",p:["Employer-reported wage survey","District labour office","Medium","Pending re-verification","95 days ago (expiring)"]}];
+const MAPD=[["Job security",91],["Income",84],["Safety",62],["Recognition",48]];
+const RES=[["Job security",91],["Income",84],["Safety",62],["Distance",41],["Recognition",48]];
+const DIST=[["District A",64],["District B",72],["District C",58],["District D",81]];
+const HLTH=[["Local openings, Bengaluru Urban","Verified","12 days ago"],["NSQF Level 4 mapping","Verified","30 days ago"],["Entry wage range","Expiring","95 days ago"],["Apprenticeship stipend","Conflicting","40 days ago"]];
+const INT=["Working with tools","Computers","Healthcare","Driving & vehicles"];
+const ROUTES=[["landing","Landing"],["roles","Roles"],["learner","Learner"],["parent","Parent"],["room","Decision Room"],["receipt","Receipt"],["counsellor","Counsellor"],["admin","Admin"]];
+let S={lang:0,large:0,hc:0,concern:"",status:{},notes:"",done:0,step:0,pick:[],loc:"Bengaluru Urban",reloc:"No",text:"ITI ke baad job milegi?",res:null,drawer:"",filter:"All"};
+try{Object.assign(S,JSON.parse(localStorage.getItem("nirnay")||"{}"))}catch(e){}
+S.drawer="";
+const t=k=>TX[k][S.lang];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function save(){try{localStorage.setItem("nirnay",JSON.stringify(S))}catch(e){}}
+function classify(x){x=x.toLowerCase();
+ if(/job|naukri|ಉದ್ಯೋಗ/.test(x))return["JOB_SECURITY","HIGH"];
+ if(/salary|income|paisa|ಆದಾಯ/.test(x))return["INCOME","HIGH"];
+ if(/safe|danger|ಸುರಕ್ಷ/.test(x))return["SAFETY","HIGH"];return["UNCLEAR","LOW"]}
+function bars(d,c){return d.map(r=>`<div class="bar"><span>${r[0]}</span><div><em style="width:${r[1]}%;background:${c}"></em></div><b>${r[1]}%</b></div>`).join("")}
+function act(n,a){
+ if(n==="lang")S.lang=1-S.lang;
+ if(n==="big")S.large=a;
+ if(n==="hc")S.hc=1-S.hc;
+ if(n==="pick")S.pick=S.pick.includes(a)?S.pick.filter(x=>x!==a):[...S.pick,a];
+ if(n==="step")S.step+=a;
+ if(n==="reloc")S.reloc=a;
+ if(n==="concern")S.concern=a;
+ if(n==="classify"){S.res=classify(S.text);S.concern=S.res[0]}
+ if(n==="st"){S.status[a[0]]=a[1]}
+ if(n==="drawer")S.drawer=a;
+ if(n==="done")S.done=1-S.done;
+ if(n==="filter")S.filter=a;
+ save();render()}
+function head(){return `<header><div class="wrap"><div class="row sp"><div><a class="logo" href="#landing">NIRNAY <b>LABS</b></a><div class="tag">${t("tag")}</div></div>
+<div class="row" role="toolbar" aria-label="Accessibility">
+<button class="hb" onclick="act('lang')" aria-label="Switch language">${S.lang?"English":"ಕನ್ನಡ"}</button>
+<button class="hb" onclick="act('big',1)" aria-label="Larger text">A+</button><button class="hb" onclick="act('big',0)" aria-label="Smaller text">A−</button>
+<button class="hb" onclick="act('hc')" aria-pressed="${!!S.hc}" aria-label="High contrast">◐</button></div></div>
+<div class="mech">${["CONCERN","EVIDENCE","AGREEMENT","ACTION"].map((x,i)=>`<span>${x}</span>${i<3?"<i>→</i>":""}`).join("")}</div></div></header>`}
+function demo(p){return `<nav class="demo" aria-label="Demo navigation"><b>DEMO</b>${ROUTES.map(r=>`<a href="#${r[0]}" class="${p===r[0]?"on":""}">${r[1]}</a>`).join("")}</nav>`}
+const P={
+landing:()=>`<div style="padding:30px 0"><div class="hero">${t("tag")}</div><div class="banner">${t("ai")}</div>
+<a class="btn saf" href="#roles">${t("start")}</a></div>
+<div class="grid"><div class="card"><h3>${t("learner")}s</h3><p>See pathways that match your interests and values.</p></div>
+<div class="card"><h3>Families</h3><p>Turn worries into questions, and questions into evidence.</p></div>
+<div class="card"><h3>${t("counsellor")}s</h3><p>Get a case brief and focus on unresolved concerns.</p></div></div>
+<div class="card"><h3 class="ok">✔ Trust</h3><p>Every claim shows source, authority, confidence, verification state and freshness. NIRNAY LABS never pressures a family to enrol. It is decision support, not an admission platform. The deterministic evidence layer holds the facts; the simulated AI layer only classifies, summarises and translates.</p></div>`,
+roles:()=>`<h1>${t("who")}</h1><div class="grid">${[["learner","Find a matching pathway"],["parent","Share your concern"],["counsellor","Review escalated cases"]].map(r=>`<a class="card" style="text-decoration:none;color:inherit" href="#${r[0]}"><h2>${t(r[0])}</h2><p>${r[1]}</p></a>`).join("")}</div>`,
+learner:()=>{let s=S.step,h=`<div class="card"><p class="small"><b>Step ${Math.min(s+1,3)} of 3</b></p>`;
+ if(s===0)h+=`<h2>What do you enjoy?</h2><div class="row" style="margin-top:8px">${INT.map(i=>`<button class="n" aria-pressed="${S.pick.includes(i)}" onclick="act('pick','${i}')">${i}</button>`).join("")}</div>`;
+ if(s===1)h+=`<h2>About you</h2><p><label>Location <input value="${esc(S.loc)}" oninput="S.loc=this.value;save()"></label></p><p><label>Education <select><option>Class 10</option><option>Class 12</option></select></label></p>`;
+ if(s===2)h+=`<h2>Willing to relocate?</h2><div class="row">${["No","Within district","Anywhere"].map(o=>`<button class="n" aria-pressed="${S.reloc===o}" onclick="act('reloc','${o}')">${o}</button>`).join("")}</div>`;
+ if(s===3)h+=`<h2>Electrical Technician</h2><div class="big ok">82%</div><p>preference alignment score (not a prediction of success). Location: ${esc(S.loc)}.</p><a class="btn pri" href="#parent">Share with family →</a>`;
+ if(s<3)h+=`<p class="row" style="margin-top:14px">${s>0?`<button onclick="act('step',-1)">Back</button>`:""}<button class="pri" onclick="act('step',1)">Next</button></p>`;
+ return h+"</div>"},
+parent:()=>{const r=S.res;return `<div class="card"><h1>${t("worry")}</h1><div class="row">${CONC.map(c=>`<button class="s" aria-pressed="${S.concern===c[0]}" onclick="act('concern','${c[0]}')">${S.lang?c[2]:c[1]}</button>`).join("")}</div>
+<p style="margin-top:16px"><label for="q"><b>Or type it in your own words</b></label></p><div class="row"><input id="q" style="flex:1;min-width:200px" value="${esc(S.text)}" oninput="S.text=this.value;save()"><button class="pri" onclick="act('classify')">Classify</button></div>
+<p class="small">Simulated AI classifies your words only. It does not produce evidence.</p>
+${r?`<div class="banner">Detected concern: ${r[0].replace("_"," ")} · ${r[1]} confidence</div>`:""}
+<a class="btn saf" href="#room">${t("start")} →</a></div>`},
+room:()=>{const w=Object.values(S.status).filter(v=>v==="n").length;const d=EV.find(e=>e.id===S.drawer);
+ return `<h1>${t("room")}</h1><div class="grid"><div class="card"><h3>${t("learner")} wants</h3>Electrical Technician (82% alignment)</div><div class="card"><h3>${t("parent")} asks</h3>${S.concern?S.concern.replace("_"," "):"No concern chosen yet"}</div></div>
+<div class="card"><h3>${t("map")}</h3>${bars(MAPD,"var(--teal)")}</div><div class="banner">${t("ai")}</div>
+${EV.map(e=>{const s=S.status[e.id];return `<article class="card"><p class="small"><i>“${e.q}”</i></p><h3>${e.t}</h3><p>${e.b}</p>
+<p><a href="#room" onclick="act('drawer','${e.id}');return false" style="color:var(--teal)">Why trust this? (provenance)</a></p>
+<div class="row"><button class="g" aria-pressed="${s==="y"}" onclick="act('st',['${e.id}','y'])">${t("yes")}</button><button class="a" aria-pressed="${s==="n"}" onclick="act('st',['${e.id}','n'])">${t("no")}</button></div></article>`}).join("")}
+${w?`<div class="card" style="border-color:var(--warn)"><h3 class="warn">⚠ ${w} concern(s) unresolved</h3><p>A counsellor can walk through these with your family. There is no pressure to enrol.</p><a class="btn saf" href="#counsellor">Escalate to counsellor</a></div>`:""}
+<a class="btn pri" href="#receipt">${t("receipt")} →</a>
+${d?`<aside class="drawer" role="dialog" aria-label="Provenance"><button onclick="act('drawer','')" aria-label="Close">✕ Close</button><h3 style="margin-top:12px">${d.t}</h3><p><b>Source</b><br>${d.p[0]}</p><p><b>Authority</b><br>${d.p[1]}</p><p><b>Confidence</b><br>${d.p[2]}</p><p><b>Verification</b><br>${d.p[3]}</p><p><b>Freshness</b><br>${d.p[4]}</p><p class="small">Limitation: figures are indicative. ${t("ai")}</p></aside>`:""}`},
+receipt:()=>{const a=EV.filter(e=>S.status[e.id]==="y"),o=EV.filter(e=>S.status[e.id]!=="y");
+ return `<div class="card"><h1>NIRNAY LABS · ${t("receipt")}</h1><p>Pathway considered: Electrical Technician (NSQF Level 4) · ${esc(S.loc)}</p>
+<h3 class="ok">${t("agreed")} (${a.length})</h3><ul>${a.map(e=>`<li>${e.t}</li>`).join("")||"<li>Nothing agreed yet</li>"}</ul>
+<h3 class="warn">${t("unres")} (${o.length})</h3><ul>${o.map(e=>`<li>${e.t}</li>`).join("")}</ul>
+<h3>Suggested next steps (optional)</h3><ul><li>Visit a local ITI open day together</li><li>Talk to a working electrician nearby</li><li>Ask a counsellor about unresolved items</li><li>Take more time. There is no deadline.</li></ul>
+<p class="small">${t("ai")} This receipt is not an enrolment commitment.</p><button class="pri noprint" onclick="window.print()">🖨 ${t("print")}</button></div>`},
+counsellor:()=>{const o=EV.filter(e=>S.status[e.id]==="n").map(e=>e.t);
+ return `<h1>Case #1842</h1><div class="card"><h3>AI case brief (simulated summary)</h3><p>Learner prefers Electrical Technician (82% alignment). Parent's primary concern: job security (HIGH confidence). Unresolved: ${o.length?o.join(", "):"none flagged yet"}.</p><p class="small">Evidence figures come from the verified evidence layer, not the AI.</p></div>
+<div class="card"><label for="n"><b>Counsellor notes</b></label><br><textarea id="n" rows="4" style="width:100%;margin-top:6px" oninput="S.notes=this.value;save()">${esc(S.notes)}</textarea></div>
+<button class="${S.done?"g":"a"}" aria-pressed="true" onclick="act('done')">${S.done?"Status: Resolved (click to reopen)":"Status: Open (mark resolved)"}</button>`},
+admin:()=>{const rows=HLTH.filter(h=>S.filter==="All"||h[1]===S.filter);
+ return `<h1>Admin Analytics</h1><div class="card"><h3>Resistance factors (% of families)</h3>${bars(RES,"var(--saf)")}</div>
+<div class="grid">${DIST.map(d=>`<div class="card"><div class="small">${d[0]}</div><div class="big">${d[1]}</div></div>`).join("")}</div>
+<div class="card"><h3>Evidence Health</h3><div class="row" style="margin:8px 0">${["All","Verified","Expiring","Conflicting"].map(f=>`<button class="n" aria-pressed="${S.filter===f}" onclick="act('filter','${f}')">${f}</button>`).join("")}</div>
+<table><tr><th>Claim</th><th>State</th><th>Checked</th></tr>${rows.map(r=>`<tr><td>${r[0]}</td><td class="${r[1]==="Verified"?"ok":r[1]==="Expiring"?"warn":"bad"}">${r[1]}</td><td>${r[2]}</td></tr>`).join("")}</table></div>`}};
+function render(){
+ const p=(location.hash||"#landing").slice(1),pg=P[p]?p:"landing";
+ document.documentElement.classList.toggle("large",!!S.large);document.documentElement.classList.toggle("hc",!!S.hc);
+ document.documentElement.lang=S.lang?"kn":"en";
+ document.getElementById("app").innerHTML=head()+`<main>${P[pg]()}</main>`+demo(pg)}
+window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
